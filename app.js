@@ -18,7 +18,7 @@ async function findYoubikeSite(searchKeyword) {
       "afterbegin",
       `<li class="list-group-item fs-5">
     <i class="fas fa-bicycle"></i>
-    ${station.sna} (${station.bemp})<br />
+    ${station.sna} (${station.sbi})<br />
     <small class="text-muted">${station.ar}</small>
   </li>`
     )
