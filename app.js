@@ -34,7 +34,6 @@ document.querySelector("#searchKeyword").addEventListener("keyup", (e) => {
       sitelist.innerHTML = ``
       findYoubikeSite(searchKeyword)
     }
-    event.preventDefault()
   }
 })
 
@@ -46,5 +45,8 @@ document.querySelector(".btn-success").addEventListener("click", () => {
     sitelist.innerHTML = ``
     findYoubikeSite(searchKeyword)
   }
+})
+
+document.querySelector("#searchForm").addEventListener("submit", () => {
   event.preventDefault()
 })
