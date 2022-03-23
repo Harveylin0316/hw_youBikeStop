@@ -4,6 +4,8 @@ const API =
   "https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json"
 
 const sitelist = document.querySelector(".siteList")
+const form = document.querySelector("#searchForm")
+const searchKeyword = document.querySelector("#searchKeyword")
 
 async function findYoubikeSite(searchKeyword) {
   const rawData = await fetch(API)
@@ -25,28 +27,10 @@ async function findYoubikeSite(searchKeyword) {
   })
 }
 
-document.querySelector("#searchKeyword").addEventListener("keyup", (e) => {
-  const searchKeyword = document.querySelector("#searchKeyword").value
-  if (e.key === "Enter") {
-    if (searchKeyword == "") {
-      alert("請輸入")
-    } else {
-      sitelist.innerHTML = ``
-      findYoubikeSite(searchKeyword)
-    }
-  }
-})
-
-document.querySelector(".btn-success").addEventListener("click", () => {
-  const searchKeyword = document.querySelector("#searchKeyword").value
-  if (searchKeyword == "") {
-    alert("請輸入")
-  } else {
-    sitelist.innerHTML = ``
-    findYoubikeSite(searchKeyword)
-  }
-})
-
-document.querySelector("#searchForm").addEventListener("submit", () => {
+form.addEventListener("submit", (e) => {
   event.preventDefault()
+  if (searchKeyword.value === "") return alert("請輸入路名關鍵字")
+
+  sitelist.innerHTML = ``
+  findYoubikeSite(searchKeyword.value)
 })
