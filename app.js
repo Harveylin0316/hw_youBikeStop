@@ -15,10 +15,10 @@ async function findYoubikeSite(searchKeyword) {
 
   matchingStop.forEach((station) => {
     sitelist.insertAdjacentHTML(
-      "afterbegin",
+      "beforeend",
       `<li class="list-group-item fs-5">
     <i class="fas fa-bicycle"></i>
-    ${station.sna} (${station.sbi})<br />
+    ${station.sna.replace("YouBike2.0_", "")} (${station.sbi})<br />
     <small class="text-muted">${station.ar}</small>
   </li>`
     )
