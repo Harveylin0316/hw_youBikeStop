@@ -5,7 +5,6 @@ const API =
 
 const sitelist = document.querySelector(".siteList")
 const form = document.querySelector("#searchForm")
-const searchKeyword = document.querySelector("#searchKeyword")
 
 async function findYoubikeSite(searchKeyword) {
   const rawData = await fetch(API)
@@ -28,6 +27,8 @@ async function findYoubikeSite(searchKeyword) {
 }
 
 form.addEventListener("submit", (e) => {
+  const searchKeyword = document.querySelector("#searchKeyword")
+
   event.preventDefault()
   if (searchKeyword.value === "") return alert("請輸入路名關鍵字")
 
